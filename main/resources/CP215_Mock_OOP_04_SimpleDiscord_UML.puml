@@ -1,0 +1,34 @@
+@startuml
+class logic.Server {
+~ String name
+~ User owner
+~ ArrayList<Channel> channelList
+~ ArrayList<User> memberList
++ String getName()
++ void setName(String)
++ User getOwner()
++ void setOwner(User)
++ ArrayList<Channel> getChannelList()
++ void setChannelList(ArrayList<Channel>)
++ ArrayList<User> getMemberList()
++ void setMemberList(ArrayList<User>)
++ Channel addChannel(User,String)
++ User addUser(User)
++ boolean kickUser(User,User)
++ boolean isMemberInServer(User)
+}
+
+
+class logic.Channel {
+- String name
+- ArrayList<Message> messageList
++ String getName()
++ void setName(String)
++ ArrayList<Message> getMessageList()
++ void setMessageList(ArrayList<Message>)
++ int getMessageCount()
++ void addMessage(Message)
+}
+
+
+@enduml

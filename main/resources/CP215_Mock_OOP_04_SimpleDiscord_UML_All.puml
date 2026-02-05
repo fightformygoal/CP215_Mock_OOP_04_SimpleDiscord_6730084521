@@ -1,0 +1,96 @@
+@startuml
+class logic.Server {
+~ String name
+~ User owner
+~ ArrayList<Channel> channelList
+~ ArrayList<User> memberList
++ String getName()
++ void setName(String)
++ User getOwner()
++ void setOwner(User)
++ ArrayList<Channel> getChannelList()
++ void setChannelList(ArrayList<Channel>)
++ ArrayList<User> getMemberList()
++ void setMemberList(ArrayList<User>)
++ Channel addChannel(User,String)
++ User addUser(User)
++ boolean kickUser(User,User)
++ boolean isMemberInServer(User)
+}
+
+
+class logic.Channel {
+- String name
+- ArrayList<Message> messageList
++ String getName()
++ void setName(String)
++ ArrayList<Message> getMessageList()
++ void setMessageList(ArrayList<Message>)
++ int getMessageCount()
++ void addMessage(Message)
+}
+
+
+enum logic.TemplateType {
++  BASIC
++  GAMING
++  STUDY
+}
+
+class logic.Message {
+- String text
+- User sender
++ String getText()
++ void setText(String)
++ User getSender()
++ void setSender(User)
+}
+
+
+class main.DiscordMain {
+- {static} Scanner sc
+- {static} ArrayList<User> usersList
+- {static} ArrayList<Server> serversList
+- {static} User currentUser
+- {static} Server currentServer
+- {static} Channel currentChannel
++ {static} void main(String[])
+- {static} void signUpMenu()
+- {static} void logInMenu()
+- {static} void UserMenu()
+- {static} void changeUsernameMenu()
+- {static} void changeDisplayStatusMenu()
+- {static} void createNewServerMenu()
+- {static} void joinNewServerMenu()
+- {static} void chooseServerMenu()
+- {static} void serverMainMenu()
+- {static} void kickMemberMenu()
+- {static} void createNewChannelMenu()
+- {static} void displayServerMembers()
+- {static} void enterChannelMenu()
+- {static} void channelMainMenu()
+- {static} void writeNewMessageMenu()
+- {static} void displayChannelMessages()
+- {static} boolean isInUsersList(User)
+- {static} int getChoiceInput()
+- {static} String getTextInput()
+- {static} void printBlock()
+- {static} void initializeProgram()
+}
+
+
+class logic.User {
+- String name
+- String status
+- ArrayList<Server> joinedServersList
++ boolean equals(Object)
++ void addJoinedServersList(Server)
++ void setStatus(String)
++ void setName(String)
++ String getName()
++ String getStatus()
++ ArrayList<Server> getJoinedServersList()
+}
+
+
+@enduml
